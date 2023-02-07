@@ -33,8 +33,8 @@ class _SimpleWidgetState extends State<SimpleWidget> {
           Text('$_count'),
           ElevatedButton(
             onPressed: (_habdleButton),
-            child: Text('PUSH'),
             style: ElevatedButton.styleFrom(),
+            child: const Text('PUSH'),
           )
         ],
       ),
