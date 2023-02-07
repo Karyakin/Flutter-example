@@ -61,7 +61,7 @@ class _ContainerWidgetState extends State<ContainerWidget> {
             const BoxShadow(
                 color: Colors.black45, // цвет тени
                 offset: Offset(-5, 5), //смещение тени от рамки
-                blurRadius: 5, //размытиу
+                blurRadius: 5, //размытие
                 spreadRadius:
                     5 //величина на которую должен быть увеличен контейнер перед применнением размытия
                 )
