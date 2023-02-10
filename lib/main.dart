@@ -13,18 +13,75 @@ class ScreenWidget extends StatelessWidget {
         appBar: AppBar(
           title: Center(child: Text('GridView Widget')),
         ),
-        body: (PageViewWidget()),
+        body: (PageViewWidgetBuilder()),
       ),
     );
   }
 }
 
-class PageViewWidget extends StatelessWidget {
-  const PageViewWidget({super.key});
+class PageViewWidgetBuilder extends StatelessWidget {
+  const PageViewWidgetBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return PageView.builder(
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        return Container(
+          color: index % 2 == 0 ? Colors.red : Colors.green,
+          alignment: Alignment.center,
+          child: Text('$index'),
+        );
+      },
+    );
+  }
+}
+
+class PageViewWidget extends StatelessWidget {
+  PageViewWidget({super.key});
+
+  final PageController controller = PageController(initialPage: 0);
+
+  @override
+  Widget build(BuildContext context) {
+    return PageView(
+      scrollDirection: Axis.vertical, // направление прокрутки
+      pageSnapping:
+          true, // отключается привязка страниц. Т.е. докручивает страницу. Удобно для просмотра. Когда останавливаем прокрутку страница остается на том же месте, не перескакивает на следующую
+      physics:
+          BouncingScrollPhysics(), // в конце и в начале если тянуть, то появляется белое поле
+      //physics: NeverScrollableScrollPhysics(),// запрещает прокрутку
+      onPageChanged: (value) =>
+          print('Page number $value'), // событие при изменении страницы
+      controller: controller, // устанавливает стартовый номер страницы
+      children: [
+        Container(
+          color: Colors.red,
+          child: Center(child: Text('STOP')),
+        ),
+        Container(
+          color: Colors.yellow,
+          child: Center(child: Text('ATANTION')),
+        ),
+        Container(
+            color: Colors.green,
+            child: Column(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                ElevatedButton(
+                  style: ButtonStyle(),
+                  onPressed: () {
+                    //controller.jumpToPage(0);// быстрый переход к странице
+                    controller.animateToPage(0,
+                        duration: Duration(seconds: 2),
+                        curve: Curves.slowMiddle);
+                  },
+                  child: const Text('Reload'),
+                ),
+              ],
+            ))
+      ],
+    );
   }
 }
 
