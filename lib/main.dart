@@ -20,7 +20,7 @@ class ScreenWidget extends StatelessWidget {
     Image changedImage = Image(
       image: imageFromNetwork.image,
       color: Colors.green,
-      colorBlendMode: BlendMode.difference,
+      colorBlendMode: BlendMode.hardLight,
     );
 
     SvgPicture imageFromAssetSvg =
@@ -46,7 +46,7 @@ class ScreenWidget extends StatelessWidget {
     //
     return Container(
       constraints: BoxConstraints.expand(height: double.infinity),
-      child: imageFromAssetSvg,
+      child: changedImage,
     );
   }
 }
