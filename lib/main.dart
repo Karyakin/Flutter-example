@@ -1,43 +1,52 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() => runApp(ScreenWidget());
 
 class ScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: "Satisfy-Regular"),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Center(child: Text('GridView Widget')),
-        ),
-        body: Center(
-          child: Column(
-            // ignore: sort_child_properties_last
-            children: [
-              Text(
-                "Anton-Regular",
-                style: TextStyle(fontFamily: 'Anton-Regular'),
-              ),
-              Text(
-                "Creepster-Regular",
-                style: TextStyle(fontFamily: 'Creepster-Regular'),
-              ),
-              Text(
-                "GoogleGonts",
-                style: GoogleFonts.bangers(
-                  textStyle: TextStyle(fontSize: 30),
-                ),
-              ),
-            ],
-            crossAxisAlignment: CrossAxisAlignment.center,
-          ),
-        ),
-      ),
+    final String asetsNamePath = 'assets/images/Photo1.jpg';
+    final String asetsNamePathSVG = 'assets/photoSVG.svg';
+    final String assetsNameUrl =
+        'https://weblinks.ru/wp-content/uploads/2022/02/Krasivye-kartinki-leta-na-zastavku-telefona-1.jpg';
+
+    Image imageFromNetwork = Image.network(assetsNameUrl);
+
+    //For imageFromNetwork
+    //
+    Image changedImage = Image(
+      image: imageFromNetwork.image,
+      color: Colors.green,
+      colorBlendMode: BlendMode.difference,
+    );
+
+    SvgPicture imageFromAssetSvg =
+        SvgPicture.asset(asetsNamePathSVG, fit: BoxFit.cover);
+    //AssetImage assetImage = AssetImage(asetsNamePath);
+    //for assetImage
+    //
+    // return Container(
+    //   constraints: BoxConstraints.expand(height: double.infinity),
+    //   child: Image(
+    //     image: assetImage,
+    //   ),
+    // );
+
+    //Image assetImage = Image.asset(asetsNamePathSVG,fit: BoxFit.cover);
+    // for assetImage
+    //
+    // return Container(
+    //     constraints: BoxConstraints.expand(height: double.infinity),
+    //     child: assetImage);
+
+    // for imageFromNetwork
+    //
+    return Container(
+      constraints: BoxConstraints.expand(height: double.infinity),
+      child: imageFromAssetSvg,
     );
   }
 }
