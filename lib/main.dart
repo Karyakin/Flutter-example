@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 
 void main() => runApp(ScreenWidget());
 
@@ -11,7 +11,7 @@ class ScreenWidget extends StatelessWidget {
     final String asetsNamePath = 'assets/images/Photo1.jpg';
     final String asetsNamePathSVG = 'assets/photoSVG.svg';
     final String assetsNameUrl =
-        'https://weblinks.ru/wp-content/uploads/2022/02/Krasivye-kartinki-leta-na-zastavku-telefona-1.jpg';
+      'https://weblinks.ru/wp-content/uploads/2022/02/Krasivye-kartinki-leta-na-zastavku-telefona-1.jpg';
 
     Image imageFromNetwork = Image.network(assetsNameUrl);
 
@@ -23,8 +23,8 @@ class ScreenWidget extends StatelessWidget {
       colorBlendMode: BlendMode.hardLight,
     );
 
-    SvgPicture imageFromAssetSvg =
-        SvgPicture.asset(asetsNamePathSVG, fit: BoxFit.cover);
+    // SvgPicture imageFromAssetSvg =
+    //    SvgPicture.asset(asetsNamePathSVG, fit: BoxFit.cover);
     //AssetImage assetImage = AssetImage(asetsNamePath);
     //for assetImage
     //
