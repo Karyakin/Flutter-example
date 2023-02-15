@@ -4,14 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:untitled/Example.dart';
 import 'package:untitled/widgets/description.dart';
 import 'package:untitled/widgets/navigators/AnonymousRoutes.dart';
+import 'package:untitled/widgets/navigators/NamedRoutesWithParams.dart';
 import 'package:untitled/widgets/positionedWidget.dart';
 import 'package:untitled/widgets/stackwidget.dart';
 
 import 'widgets/IndexedStack.dart';
+import 'widgets/navigators/NamedRoutes.dart';
 
 void main() {
 
-  runApp(AnonymousRoutes());
+  // runApp(AnonymousRoutes());
+  // runApp(NamedRoutes());
+  runApp(NamedRoutesWithParams());
 }
 
 

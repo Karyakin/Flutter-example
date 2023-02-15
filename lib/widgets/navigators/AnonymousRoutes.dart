@@ -29,10 +29,10 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('photo')
-            /*Image.network(
-                'https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/MacBook_Air7035.jpg',
-                width: 300)*/,
+          const Image(image: AssetImage('assets/images/mac.png')),
+            // Image.network(
+            //     'https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/MacBook_Air7035.jpg',
+            //     width: 300),
             ElevatedButton(
               child: Text('Подробнее'),
               onPressed: () {
